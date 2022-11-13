@@ -3014,17 +3014,7 @@ void update_camera(struct Camera *c) {
     gCamera = c;
     update_camera_hud_status(c);
     if (c->cutscene == 0) {
-        // Only process R_TRIG if 'fixed' is not selected in the menu
-        if (cam_select_alt_mode(0) == CAM_SELECTION_MARIO) {
-            if (gPlayer1Controller->buttonPressed & R_TRIG) {
-                if (set_cam_angle(0) == CAM_ANGLE_LAKITU) {
-                    set_cam_angle(CAM_ANGLE_MARIO);
-                } else {
-                    set_cam_angle(CAM_ANGLE_LAKITU);
-                }
-            }
-        }
-        play_sound_if_cam_switched_to_lakitu_or_mario();
+        set_cam_angle(CAM_ANGLE_MARIO);
     }
 
     // Initialize the camera
